@@ -1,2 +1,2 @@
 # clone-tabnews
-Implementação do https://www.tabnews.com.br como um projeto do curso.dev
+Recreating https://www.tabnews.com.br as a project of the course https://www.curso.dev
