@@ -1,5 +1,8 @@
-function sum(arg1, arg2) {
-  return arg1 + arg2;
+function sum(number1, number2) {
+  if (typeof number1 !== "number" || typeof number2 !== "number") {
+    return "Error";
+  }
+  return number1 + number2;
 }
 
 exports.sum = sum;
