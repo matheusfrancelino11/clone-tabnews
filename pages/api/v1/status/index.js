@@ -1,9 +1,19 @@
 import database from "infra/database.js";
 
 async function status(request, response) {
-  const result = await database.query("SELECT 1+1;");
-  console.log(result.rows);
-  response.status(200).json({ key: "value" });
+  const updatedAt = new Date().toISOString();
+
+  const databaseVersion = await database.query("SHOW server_version;");
+  const databaseVersionValue = databaseVersion.rows[0].server_version;
+
+  response.status(200).json({
+    updated_at: updatedAt,
+    dependencies: {
+      database: {
+        version: databaseVersionValue,
+      },
+    },
+  });
 }
 
 export default status;
